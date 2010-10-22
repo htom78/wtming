@@ -1,0 +1,57 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table cellspacing="0" cellpadding="5" border="0">
+        			    <tbody><tr>
+        			        <td width="80" align="right">
+        			            当前头像
+        			        </td>
+        			        <td align="left">
+        			        </td>
+        			    </tr>
+        					<tr>
+        			        <td width="80" align="right">
+
+        			        </td>
+        			        <td align="left">
+        			            <div class="sep5"></div>
+        			            <a class="super normal button" href="/settings/avatar">上传新头像</a> &nbsp; <span class="fade">本站亦支持　<a target="_blank" href="http://www.gravatar.com/">Gravatar</a></span>
+        			        </td>
+        			    </tr>
+        			</tbody></table>
+
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%=  @user.email %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+    <br/>
+  <div class="field">
+    <strong class="fade">如果你不想更改密码，请留空以下输入框。</strong>
+    <br/>
+    <br/>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta content="True" name="HandheldFriendly" />
+	<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0; name='viewport'" />
+	<title>V2EX</title>
+  <%= stylesheet_link_tag :all %>
+  <%= csrf_meta_tag %>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %>
+<%= javascript_include_tag 'rails' %>
+
+	<script type="text/javascript">
+    function recordOutboundLink(link, category, action) {
+        try {
+            var pageTracker=_gat._getTracker("UA-11940834-2");
+            pageTracker._trackEvent(category, action);
+            // setTimeout('document.location = "' + link.href + '"', 100)
+        } catch(err) {}
+    }
+    </script>
+    
+</head>
+
+<body>
+    <div id="Top">
+    <div id="TopMain">
+        <div id="Logo" onclick="location.href='/'"></div>
+
+        <div id="Navigation">
+	
+
+            
+            <ul>
+                <li><a href="/" class="white">首页</a></li>
+                <% if current_user %>
+			      <li><%= link_to "Edit Profile", setting_path %> </li>
+			      <li><%= link_to "Logout", logout_path, :method => :delete, :confirm => "Are you want to logout?" %></li>
+			    <% else %>
+			      <li> <%= link_to "Register", signup_path %></li>
+			      <li> <%= link_to "Login", login_path %></li>
+			    <% end %>
+
+            </ul>
+            
+        </div>
+
+
+        <div id="Search"><form onsubmit="return dispatch()"><input type="text" class="search" maxlength="40" name="q" value="" id="q" /><input type="submit" class="super normal button" value="Search" style="-moz-border-radius: 0px 3px 3px 0px; border-left: none;" /></form></div>
+    </div>
+</div>
+    <div id="Wrapper">
+    <div id="Main">
+        <div id="Sidebar">   
+        </div>
+        <div id="Rightbar">
+
+            <div class="box">
+    <%if !current_user%>    
+    <div class="cell">
+        <strong>V2EX = way to explore</strong>
+        
+        <div class="sep5"></div>
+        <span class="fade">V2EX 是一个关于分享和探索的地方</span>
+        
+    </div>
+    <div class="inner">
+        <div class="sep5"></div>
+
+        <div align="center"><a href="/signup" class="super normal button">现在加入</a>
+        <div class="sep5"></div>
+        <div class="sep10"></div>
+        若你已有账户，<a href="/signin">请登入</a></div>
+    </div>
+  <%else %>
+<div class="inner">
+    
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+                <td width="48" valign="top">
+                  
+                <a href="/setting/avatar"><img border="0" alt="Htom" src="http://www.v2ex.com/avatar/376/normal"></a></td>
+                <td width="10" valign="top"></td>
+                <td width="auto" align="left"><span class="bigger">
+                    <%= link_to current_user.name, user_path(current_user) %>
+                    </span>
+                    <div class="sep5"></div>
+                    <span class="fade"></span>
+                </td>
+            </tr>
+        </tbody></table>
+        
+    </div>
+    
+  <%end %>
+</div>
+        </div>
+
+        <div id="Content">
+			<div class="box">
+			 <div class="cell">
+			 <span class="fade">登出</span>
+
+            <% flash.each do |key, value| %>
+              <div class="flash <%= key %>"><%= value %></div>
+            <% end %>
+
+			 </div>
+			<div class="inner">
+				<%= yield %>
+				
+			</div>
+			
+			               
+			 </div>
+            
+        </div>
+
+    <div class="c"></div>
+    </div>
+    </div>
+    <div id="Bottom">
+    <div id="BottomMain"><div class="fr" align="right" style="padding-top: 10px;"><a href="http://code.google.com/appengine/" target="_blank"><img src="http://pic.yupoo.com/iweekly/Ar82qEas/MV2Mq.gif" border="0" alt="Powered by Google App Engine" align="absmiddle" /></a> &nbsp; <a href="http://www.rackspacecloud.com/1209.html" target="_blank"><img src="http://web.me.com/v2ex.livid/logos/rackspacecloud.png" border="0" alt="Powered by Rackspace Cloud" align="absmiddle" /></a><div class="sep5"></div><a href="http://www.apple.com/mobileme" target="_blank"><img src="http://web.me.com/v2ex.livid/logos/mobileme.gif" border="0" align="absmiddle" /></a> &nbsp; <a href="http://www.getcloudapp.com/" target="_blank"><img src="http://web.me.com/v2ex.livid/logos/cloudapp.png" border="0" align="absmiddle" /></a>
+        </div>
+        <strong><a href="/about" class="dark">About</a></strong> &nbsp; | &nbsp; <strong><a href="/faq" class="dark">FAQ</a></strong> &nbsp; | &nbsp; <strong><a href="/mission" class="dark">Mission</a></strong> &nbsp; | &nbsp; <strong><a href="http://picky.olivida.com/" class="dark" target="_blank">Blog</a></strong> &nbsp; | &nbsp; <strong><a href="/advertise" class="dark">Advertise</a></strong>
+
+        <div class="sep10"></div>
+        <div class="sep5"></div>
+        <span class="fade">V2EX 开始于 2006 年，在 2010 年重新启动。运行在 Google App Engine 上。</span>
+        <div class="sep3"></div>
+        <span class="fade">Lovingly made by <a href="http://www.olivida.com/" target="_blank" class="dark"><strong>OLIVIDA</strong></a></span>
+        <div class="sep10"></div>
+        <div class="sep5"></div>
+
+    </div>
+
+    
+</div>
+</body>
+</html>
+

@@ -1,0 +1,10 @@
+
+
+
+<% form_for @user, :url => setting_avatar_update_path, :html => { :multipart => true } do |f| %>
+  <label>Avatar:</label><br />
+  <%= f.file_field "avatar" %>
+  <br />
+  <br />
+  <%= f.submit "Upload my avatar" %>
+<% end %>
