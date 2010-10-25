@@ -51,6 +51,7 @@ GEM
       activemodel (= 3.0.0)
       activesupport (= 3.0.0)
     activesupport (3.0.0)
+    acts-as-taggable-on (2.0.6)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     builder (2.1.2)
@@ -93,9 +94,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   authlogic!
   dynamic_form!
-  mail (= 2.2.6)
+  mail
   mysql2
   paperclip!
   rails (= 3.0.0)

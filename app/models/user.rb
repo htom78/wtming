@@ -1,13 +1,15 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |config|
-    #config.validate_email_field = false
+    config.validate_email_field = false
     config.validate_password_field = false
   end
 
-  attr_accessible :avatar
-  #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-  
-  
+  attr_accessible :avatar, :password, :password_confirmation
+
+  has_attached_file :avatar, :styles => { :large => "73x73>", :medium => "48x48>", :thumb => "24x24>" },
+                  :url  => "/assets/avatars/:id/:style/:basename.:extension",
+                  :path => ":rails_root/public/assets/avatars/:id/:style/:basename.:extension"
+
   validates :password, :on => "create", :confirmation => true 
   validates :password, :on => "update", :confirmation => true, :if => :password_notempty?
 

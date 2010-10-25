@@ -17,6 +17,9 @@
         			            当前头像
         			        </td>
         			        <td align="left">
+                              <%= image_tag @user.avatar.url(:large) %>
+                              <%= image_tag @user.avatar.url(:medium) %>
+                              <%= image_tag @user.avatar.url(:thumb) %>
         			        </td>
         			    </tr>
         					<tr>
@@ -25,7 +28,7 @@
         			        </td>
         			        <td align="left">
         			            <div class="sep5"></div>
-        			            <a class="super normal button" href="/settings/avatar">上传新头像</a> &nbsp; <span class="fade">本站亦支持　<a target="_blank" href="http://www.gravatar.com/">Gravatar</a></span>
+        			            <a class="super normal button" href="/setting/avatar">上传新头像</a> &nbsp; <span class="fade">本站亦支持　<a target="_blank" href="http://www.gravatar.com/">Gravatar</a></span>
         			        </td>
         			    </tr>
         			</tbody></table>

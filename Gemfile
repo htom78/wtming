@@ -14,10 +14,17 @@ gem "dynamic_form", :git => "git://github.com/rails/dynamic_form.git"
 group :development, :test do
 end
 
-gem "mail", "2.2.6" 
+gem "mail"
 gem "simple_form" 
 
-gem "paperclip", :git => "http://github.com/thoughtbot/paperclip.git"
+gem "acts-as-taggable-on"
+
+gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git'
+
+# gem 'paperclip', :git => 'http://github.com/minter/paperclip.git', :branch => 'rails3'
+
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
