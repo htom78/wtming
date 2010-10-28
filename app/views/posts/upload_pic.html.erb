@@ -1,0 +1,65 @@
+
+<%= javascript_include_tag 'ajaxupload' %>
+
+<script type="text/javascript">/*<![CDATA[*/
+	$(document).ready(function(){
+		/* Example 1 */
+		var button = $('#upload_btn'), interval;
+		
+		new AjaxUpload(button, {
+			action: '<%= upload_pic_path %>', 
+			name: 'post[pic]',
+			onSubmit : function(file, ext){
+				// change button text, when user selects file			
+				button.text('Uploading');
+								
+				// If you want to allow uploading only 1 file at time,
+				// you can disable upload button
+				this.disable();
+				
+				// Uploding -> Uploading. -> Uploading...
+				interval = window.setInterval(function(){
+					var text = button.text();
+					if (text.length < 13){
+						button.text(text + '.');					
+					} else {
+						button.text('Uploading');				
+					}
+				}, 200);
+			},
+			onComplete: function(file, response){
+				button.text('上传成功');
+							
+				window.clearInterval(interval);
+
+                window.location = response
+
+                return;
+
+                if (!response[error])
+                  window.location = response[url];
+                else
+                {
+                  // to be added later
+                }
+							
+				// enable upload button
+				//this.enable();
+				
+				// add file to the list
+				//$('<li></li>').appendTo('#example1 .files').text(file);						
+			}
+		});
+
+	});/*]]>*/</script>
+
+
+
+
+  <div class="field">
+	
+	<%= link_to '上传', post_pic_path, :class => "super normal button", :id => "upload_btn" %>
+		
+  </div>
+  
+

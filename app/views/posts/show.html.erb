@@ -11,13 +11,18 @@
 </p>
 
 <p>
+  <b>Image:</b>
+  <%= image_tag @post.pic.url(:large) %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @post.description %>
 </p>
 
 <p>
-  <b>Formatted html:</b>
-  <%= @post.formatted_html %>
+  <b>Tags:</b>
+  <%= @post.tags %>
 </p>
 
 

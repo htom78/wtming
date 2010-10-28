@@ -4,3 +4,7 @@ log/*.log
 tmp/**/*
 *.swp
 public/system/avatars/1
+public/uploads/62 public/uploads/63
+public/.DS_Store
+.DS_Store
+public/uploads/

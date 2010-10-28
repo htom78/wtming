@@ -19,6 +19,8 @@ Mrails::Application.routes.draw do
   match 'setting/avatar' => "users#avatar_edit"
   match 'setting/avatar/update' => "users#avatar_update"
 
+  match 'post_pic' => "posts#new_pic", :as => :post_pic
+  match 'upload_pic' => "posts#create_pic", :as => :upload_pic
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

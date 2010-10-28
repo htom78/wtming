@@ -10,6 +10,12 @@ class User < ActiveRecord::Base
                   :url  => "/assets/avatars/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/avatars/:id/:style/:basename.:extension"
 
+
+  has_many :posts, :dependent => :destroy
+
+  acts_as_tagger
+
+
   validates :password, :on => "create", :confirmation => true 
   validates :password, :on => "update", :confirmation => true, :if => :password_notempty?
 
