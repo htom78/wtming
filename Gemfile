@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -10,6 +10,9 @@ gem 'mysql2'
 gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
 
 gem "dynamic_form", :git => "git://github.com/rails/dynamic_form.git"
+
+gem 'devise' # Devise must be required before RailsAdmin
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 group :development, :test do
 end
@@ -23,7 +26,7 @@ gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git'
 
 # gem 'paperclip', :git => 'http://github.com/minter/paperclip.git', :branch => 'rails3'
 
-
+gem 'will_paginate', '>= 3.0.pre2'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -32,7 +35,7 @@ gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
+gem 'ruby-debug'
 
 # Bundle the extra gems:
 # gem 'bj'

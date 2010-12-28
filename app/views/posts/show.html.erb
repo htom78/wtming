@@ -1,30 +1,46 @@
+<div class="box">
+
+
+
+<div style="min-height: 73px;" class="cell">
+                    <div class="fr snow">		
+	 <%= link_to (image_tag(@post.user.avatar.url(:large), :border =>  0), user_path(@post.user)) %>
+	</div>
+                    <span class="bigger"><a href="/">V2EX</a> <span class="chevron">&nbsp;›&nbsp;</span> <a href="/go/share">分享发现</a></span>
+                    <h1><%= @post.title %></h1>
+                    <strong><small class="fade">By <%= link_to @post.user.name, user_path(@post.user), :class => 'dark' %> at <%= time_ago_in_words(@post.created_at) %> ago, 745 hits</small></strong>
+                </div>
+
+
+<div class="inner">
+	
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
-
-<p>
-  <b>Image:</b>
   <%= image_tag @post.pic.url(:large) %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @post.description %>
+  <%=h @post.description %>
 </p>
 
 <p>
   <b>Tags:</b>
-  <%= @post.tags %>
+  <%= @post.tags.map { |t| t.name }.join(", ") %>
 </p>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+</div>
+
+</div>             
+
+
+<%= render 'comments/list' %>
+
+<%= render 'comments/form' %>
+
+

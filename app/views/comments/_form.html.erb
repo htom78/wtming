@@ -1,0 +1,36 @@
+<div class="sep20"></div>
+
+<div class="box">
+	
+	<div class="cell">
+		<div class="fr fade">⬆ <a class="dark" href="#_top">回到顶部</a></div>
+	                <span class="fade">现在添加一条回复</span>
+	                </div>
+	
+					<%= simple_form_for(@new_comment) do |f| %>
+					  <% if @new_comment.errors.any? %>
+					    <div id="error_explanation">
+					      <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this new_comment from being saved:</h2>
+					      <ul>
+					      <% @new_comment.errors.full_messages.each do |msg| %>
+					        <li><%= msg %></li>
+					      <% end %>
+					      </ul>
+					    </div>
+					  <% end %>
+					
+					<div class="inner">
+					<textarea onkeyup="c();" id="comment_content" name="comment[content]" class="mll"></textarea>
+					
+					<input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
+					
+					<div class="sep10"></div>
+					<div id="e" class="fr fade"></div>
+					<input type="submit" value="发送" class="super normal button">
+ </div>	
+		
+
+
+
+
+<% end %>

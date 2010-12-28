@@ -1,0 +1,16 @@
+
+
+<div class="sep20"></div>
+
+<div class="box">
+  <div class="cell"><div class="fr"><a href="/t/3822?r=1">新回复在前</a> &nbsp;<span class="snow">|</span>&nbsp; <a href="/t/3822?f=1">只看楼主</a></div><span class="fade"><%= @post.comments.count %> 回复 &nbsp;<span class="snow">|</span>&nbsp; 直到 2010-10-28 16:00:14 PM</span></div>
+  <div id="replies">
+<% unless @post.comments.empty? %>
+<%= render :partial => 'comments/item', :collection => @post.comments %>
+<% else%>
+
+<% end %>
+<br />
+</div>
+</div>
+<%= link_to 'New Comment', new_comment_path %>
