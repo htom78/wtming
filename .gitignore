@@ -3,6 +3,7 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 *.swp
+public
 public/system/avatars/1
 public/uploads/62 public/uploads/63
 public/.DS_Store

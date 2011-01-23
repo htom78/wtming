@@ -1,0 +1,25 @@
+<% if item.created_at != nil %>
+<div class="cell reply from_141">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tbody><tr>
+              <td width="48" valign="top">
+	 <%= link_to (image_tag(item.user.avatar.url(:large), :border =>  0), user_path(item.user)) %>
+<%= link_to item.user.name, user_path(item.user)  %>
+</td>
+              <td width="10"></td>
+              <td width="auto" valign="top">
+                <div id="reply_29252_buttons" class="fr">
+                  <strong><small class="snow">#1 - <%= time_ago_in_words(item.created_at) %> ago &nbsp; <img border="0" align="absmiddle" class="clickable" onclick="replyOne('Kymair')" alt="回复 " src="/static/img/reply.png"><span class="ops"></span></small></strong>
+                </div>
+                <div class="sep3"></div>
+                <strong>
+
+</strong>
+                <div class="sep5"></div>
+                <div class="content reply_content">
+                <%= item.content %>
+                 </div>
+              </td>
+        </tr></tbody></table>
+      </div>
+<% end %>
