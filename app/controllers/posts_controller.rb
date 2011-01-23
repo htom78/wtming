@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.where({:implemented => 1})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,10 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
-
+    @new_comment = @post.comments.build(params[:id])
+    
+    #debugger
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @post }
