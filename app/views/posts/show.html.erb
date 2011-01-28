@@ -1,8 +1,4 @@
-<div class="box">
 
-
-
-<div style="min-height: 73px;" class="cell">
                     <div class="fr snow">		
 	 <%= link_to (image_tag(@post.user.avatar.url(:large), :border =>  0), user_path(@post.user)) %>
 	</div>
@@ -27,16 +23,14 @@
 
 <p>
   <b>Tags:</b>
-  <%= @post.tags.map { |t| t.name }.join(", ") %>
+  <%= @post.tags.map { |t| t.name }.join("  ") %>
 </p>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
 
-</div>
-
-</div>             
+        
 
 
 <%= render 'comments/list' %>
