@@ -11,9 +11,6 @@ gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "
 
 gem "dynamic_form", :git => "git://github.com/rails/dynamic_form.git"
 
-gem 'devise' # Devise must be required before RailsAdmin
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-
 group :development, :test do
 end
 
